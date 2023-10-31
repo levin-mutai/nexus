@@ -93,6 +93,7 @@ INSTALLED_APPS = [
     "corsheaders",
     "rest_framework",
     "accounts",
+    "shops",
     "drf_yasg",
 ]
 
