@@ -40,6 +40,22 @@ class ProductViewSet(viewsets.ModelViewSet):
         headers = self.get_success_headers(serializer.data)
         return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
+    def retrieve(self,request,pk=None,*args, **kwargs):
+        """Used to get specific shops available"""
+        queryset = Products.objects.get(id = pk)
+        serializer = self.get_serializer(queryset)
+        return Response(serializer.data)
+
+    def list(self,request,*args, **kwargs):
+        """Used to get all the shops available"""
+        queryset = Shops.objects.all()
+        shop_name = self.request.query_params.get('shop_name')
+        if shop_name:
+            queryset = queryset.filter(shop_name=shop_name)
+            return Response(ShopSerializer(queryset).data)
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+
     def update(self, request,pk=None, *args, **kwargs):
         """Used to update the products in the shop"""
         partial = kwargs.pop('partial', False)
@@ -74,10 +90,22 @@ class ShopViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         """Used to get all the shops available"""
         queryset = Shops.objects.all()
-        shop_name = self.request.query_params.get('shop_name')
-        if shop_name:
-            queryset = queryset.filter(shop_name=shop_name)
         return queryset
+    def myshops(self,request,*args, **kwargs):
+        """Used to get all the shops registered under the person making request"""
+        try:
+            queryset = Shops.objects.filter(owner = request.user.id).all()
+
+
+            serializer = self.get_serializer(queryset, many=True)
+            return Response(serializer.data)
+        except Shops.DoesNotExist:
+            return Response({"error":"You do not have any shop registered under your account"},status=status.HTTP_404_NOT_FOUND)
+    def retrieve(self,request,pk=None,*args, **kwargs):
+        """Used to get specific shops available"""
+        queryset = Shops.objects.get(id = pk)
+        serializer = self.get_serializer(queryset)
+        return Response(serializer.data)
 
     def create(self, request, *args, **kwargs):
         """Used to add new shops to the shop"""
@@ -115,6 +143,8 @@ class ShopViewSet(viewsets.ModelViewSet):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 class StaffViewSet(viewsets.ModelViewSet):
+    '''This a view used to perform all staff related actions in the shop'''
+
     queryset = Staff.objects.all()
     serializer_class = StaffSerializer
     permission_classes = [IsAdminUser]
@@ -133,6 +163,12 @@ class StaffViewSet(viewsets.ModelViewSet):
         if serializer.is_valid(raise_exception=True):
             res =StaffSerializer.create(request.data)
             return Response(StaffSerializer(res), status=status.HTTP_201_CREATED)
+
+    def retrieve(self,request,pk=None,*args, **kwargs):
+        """Used to get all the shops available"""
+        queryset = Staff.objects.get(shop=pk)
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
 
     def update(self, request,pk=None, *args, **kwargs):
         """Used to update the staffs in the shop"""

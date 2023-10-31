@@ -7,23 +7,23 @@ urlpatterns = [
         ProductViewSet.as_view({"get": "get_queryset","post":"create"}),
     ),
     path(
-    "/products/<int:pk>",
-    ProductViewSet.as_view({"put": "update", "delete": "destroy"}),
+    "/products/<pk>",
+    ProductViewSet.as_view({"get":"retrieve","put": "update", "delete": "destroy"}),
 ),
     path(
         "/staffs",
         StaffViewSet.as_view({"get": "get_queryset","post":"create"}),
     ),
     path(
-    "/staffs/<int:pk>",
-    StaffViewSet.as_view({"put": "update", "delete": "destroy"}),
+    "/staffs/<pk>",
+    StaffViewSet.as_view({"get":"retrieve","put": "update", "delete": "destroy"}),
 ),
     path(
         "",
-        ShopViewSet.as_view({"get": "get_queryset","post":"create"}),
+        ShopViewSet.as_view({"get": "myshops","post":"create"}),
     ),
     path(
-    "/<int:pk>",
-    ShopViewSet.as_view({"put": "update", "delete": "destroy"}),
+    "/<pk>",
+    ShopViewSet.as_view({"get":"retrieve","put": "update", "delete": "destroy"}),
 ),
 ]
