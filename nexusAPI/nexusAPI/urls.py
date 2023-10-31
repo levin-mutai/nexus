@@ -13,7 +13,7 @@ from drf_yasg import openapi
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="SYOKINET API",
+        title="NexusAPI",
         default_version="v1",
         description="""This is an API for nexis. It is a challange given by PEER Carbon.\n\n For you to use this API you need to first login. You can do that using the user login route(user/login). If not yet a user please register using the user register route(user/register).\n\n After successful login you will get both `access` and `refresh` token. You will need the `access` token for **Authorization**\n\nIf using curl or any other tool make sure to pass `Authorization` as a header with a value of the Bearers token e.g \n\n ```curl -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk2MzY5MTc2LCJpYXQiOjE2OTYzNjE5NzYsImp"``` """,
         terms_of_service="https://www.yourapp.com/terms/",
@@ -39,7 +39,7 @@ urlpatterns = [
     path(
         "",
         include_docs_urls(
-            title="SYOKINET API",
+            title="NexusAPI",
             description="""This is an API for nexis. It is a challange given by PEER Carbon. \n\n For you to use this API you need to first login. You can do that using the user login route(user/login). If not yet a user please register using the user register route(user/register).\n\n After successful login you will get both `access` and `refresh` token. You will need the `access` token to access any route in this API.\n\n To do that, copy the `access` token obtained, then click on `Authenticatiion` on the left bottom of the screen then select `token` then paste the token on the **Token** field and on **Scheme** please use 'Bearer' then click on **USe Token Authentication** and just like that you can test the endpoinps!\n\nIf using curl or any other tool make sure to pass `Authorization` as a header with a value of the Bearers token e.g \n\n ```curl -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk2MzY5MTc2LCJpYXQiOjE2OTYzNjE5NzYsImp"```\n\n**Note:** If you prefer *swagger* for documentation please head to `/swagger` and `/redoc` for *redoc*.
                 """,
         ),
