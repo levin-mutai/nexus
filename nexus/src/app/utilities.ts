@@ -1,0 +1,3 @@
+interface MyResponse {
+  status: number;
+}

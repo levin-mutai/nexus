@@ -1,59 +1,19 @@
 <div class="container">
   <div class="row">
-    <div class="row row-cols-1 row-cols-md-4 g-4">
+    <div
+      class="row row-cols-1 row-cols-md-4 g-4"
+      *ngFor="let shop of all_shops"
+    >
       <div class="col">
-        <div class="card" style="width: 22rem">
+        <div class="card" (click)="onCardClick(shop.id)" style="width: 22rem">
           <img
             src="https://imgs.search.brave.com/0fkeuao5b3j4I6XZBhCf7TIrdfttSwGMo3wM6YHaymA/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9i/b3gtbWFya2V0LWVs/ZWN0cm9uaWMtb3Jk/ZXJpbmctc2hvcC1i/YXNrZXRfMTQyMS01/NjcuanBnP3NpemU9/NjI2JmV4dD1qcGc"
             class="card-img-top"
             alt="..."
           />
           <div class="card-body">
-            <p class="card-text">
-              Some quick example bulk of the card's content.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card" style="width: 22rem">
-          <img
-            src="https://imgs.search.brave.com/0fkeuao5b3j4I6XZBhCf7TIrdfttSwGMo3wM6YHaymA/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9i/b3gtbWFya2V0LWVs/ZWN0cm9uaWMtb3Jk/ZXJpbmctc2hvcC1i/YXNrZXRfMTQyMS01/NjcuanBnP3NpemU9/NjI2JmV4dD1qcGc"
-            class="card-img-top"
-            alt="..."
-          />
-          <div class="card-body">
-            <p class="card-text">
-              Some quick example bulk of the card's content.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card" style="width: 22rem">
-          <img
-            src="https://imgs.search.brave.com/0fkeuao5b3j4I6XZBhCf7TIrdfttSwGMo3wM6YHaymA/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9i/b3gtbWFya2V0LWVs/ZWN0cm9uaWMtb3Jk/ZXJpbmctc2hvcC1i/YXNrZXRfMTQyMS01/NjcuanBnP3NpemU9/NjI2JmV4dD1qcGc"
-            class="card-img-top"
-            alt="..."
-          />
-          <div class="card-body">
-            <p class="card-text">
-              Some quick example bulk of the card's content.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card" style="width: 22rem">
-          <img
-            src="https://imgs.search.brave.com/0fkeuao5b3j4I6XZBhCf7TIrdfttSwGMo3wM6YHaymA/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9i/b3gtbWFya2V0LWVs/ZWN0cm9uaWMtb3Jk/ZXJpbmctc2hvcC1i/YXNrZXRfMTQyMS01/NjcuanBnP3NpemU9/NjI2JmV4dD1qcGc"
-            class="card-img-top"
-            alt="..."
-          />
-          <div class="card-body">
-            <p class="card-text">
-              Some quick example bulk of the card's content.
-            </p>
+            <p class="card-text fw-bold">{{ shop.name }}</p>
+            <br />
           </div>
         </div>
       </div>

@@ -12,6 +12,7 @@ import { RegisterComponent } from './register/register.component';
 import { MatOptionModule } from '@angular/material/core';
 import { AppRoutingModule } from '../app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { ModelsModule } from '../models/models.module';
 
 @NgModule({
   declarations: [AccountComponent, LoginComponent, RegisterComponent],
@@ -27,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     MatOptionModule,
     HttpClientModule,
+    ModelsModule,
   ],
 })
 export class AccountModule {}
