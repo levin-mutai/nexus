@@ -1,12 +1,25 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environment/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  constructor() {}
-
-  login() {
+  constructor(private http: HttpClient) {}
+  headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+  });
+  login(data: {}) {
+    this.http
+      .post(environment.baseUrl + 'users/login', data, {
+        headers: this.headers,
+      })
+      .subscribe((response) => {
+        console.log(response);
+      });
     localStorage.setItem('token', '123');
     localStorage.setItem('refreshToken', '123');
     localStorage.setItem('expiresAt', '123');
