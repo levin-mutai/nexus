@@ -22,4 +22,4 @@ jobs:
       env:
           username: ${{ secrets.DOCKERHUB_PASSWORD }}
           password: ${{ secrets.DOCKERHUB_USERNAME }}
-      run: docker-login -u username -p password
+      run: docker login -u username -p password
