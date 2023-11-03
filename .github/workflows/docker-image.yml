@@ -19,7 +19,4 @@ jobs:
       run: docker-compose -f nexusAPI/docker-compose.yml build
 
     - name: Push to docker Hub
-      env:
-          username: ${{ secrets.DOCKERHUB_PASSWORD }}
-          password: ${{ secrets.DOCKERHUB_USERNAME }}
-      run: docker login -u username -p password
+      run: docker login -u ${{ secrets.DOCKERHUB_PASSWORD }} -p ${{ secrets.DOCKERHUB_PASSWORD }}
