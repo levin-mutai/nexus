@@ -5,14 +5,19 @@ import { ShopComponent } from './shop/shop.component';
 import { LoginComponent } from './account/login/login.component';
 import { RegisterComponent } from './account/register/register.component';
 import { ShopdetailsComponent } from './shopdetails/shopdetails.component';
+import { shopsGuard } from './shops.guard';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'accounts', component: AccountComponent },
-  { path: 'shops/:id', component: ShopdetailsComponent },
-  { path: 'shops', component: ShopComponent },
+  {
+    path: 'shops/:id',
+    canActivate: [shopsGuard],
+    component: ShopdetailsComponent,
+  },
+  { path: 'shops', canActivate: [shopsGuard], component: ShopComponent },
 ];
 
 @NgModule({
