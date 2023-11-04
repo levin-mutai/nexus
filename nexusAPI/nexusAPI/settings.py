@@ -26,7 +26,37 @@ SECRET_KEY = "django-insecure-#ion#0#ne*it0qmg+8syi00lh(^6vu)33q2cvv8kwpy%h%4sjw
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'localhost'
+    '0.0.0.0',
+    'nexapi.azurewebsites.net'
+]
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Enable CORS
+CORS_ALLOW_ALL_ORIGINS = False  # Set to True to allow all origins
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:4200', 
+    "https://nexapi.azurewebsites.net",
+    "http://nexapi.azurewebsites.net", 
+   
+]
+
+CORS_ALLOW_METHODS = [
+    'GET',
+    'POST',
+    'PUT',
+    'PATCH',
+    'DELETE',
+    'OPTIONS',  
+]
+
+CORS_ALLOW_HEADERS = [
+    'Content-Type',
+]
+
 
 APPEND_SLASH = False
 
