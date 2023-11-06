@@ -30,7 +30,9 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost'
     '0.0.0.0',
-    'nexapi.azurewebsites.net'
+    'nexapi.azurewebsites.net',
+    'nexus-kappa-beryl.vercel.app',
+    '169.254.130.3'
 ]
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -41,6 +43,8 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:4200', 
     "https://nexapi.azurewebsites.net",
     "http://nexapi.azurewebsites.net", 
+    'https://nexus-kappa-beryl.vercel.app/',
+    'https://169.254.130.3:8181'
    
 ]
 
@@ -55,6 +59,7 @@ CORS_ALLOW_METHODS = [
 
 CORS_ALLOW_HEADERS = [
     'Content-Type',
+    
 ]
 
 
