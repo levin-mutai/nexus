@@ -19,7 +19,7 @@ export class UserService {
   });
   login(data: {}) {
     this.http
-      .post<MyResponse>(environment.baseUrl + 'user/login', data, {
+      .post<MyResponse>(environment.baseUrl + '/user/login', data, {
         headers: this.headers,
       })
       .subscribe((response) => {
@@ -43,7 +43,7 @@ export class UserService {
 
   register(data: {}) {
     this.http
-      .post(environment.baseUrl + 'user/register', data, {
+      .post(environment.baseUrl + '/user/register', data, {
         headers: this.headers,
       })
       .subscribe((response) => {

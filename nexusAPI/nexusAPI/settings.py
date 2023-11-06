@@ -43,7 +43,7 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:4200', 
     "https://nexapi.azurewebsites.net",
     "http://nexapi.azurewebsites.net", 
-    'https://nexus-kappa-beryl.vercel.app/',
+    'https://nexus-kappa-beryl.vercel.app',
     'https://169.254.130.3:8181'
    
 ]
