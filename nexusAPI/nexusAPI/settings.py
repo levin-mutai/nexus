@@ -44,6 +44,7 @@ CORS_ALLOWED_ORIGINS = [
     "https://nexapi.azurewebsites.net",
     "http://nexapi.azurewebsites.net", 
     'https://nexus-kappa-beryl.vercel.app',
+    'https://nexus-kappa-beryl.vercel.app',
     'https://169.254.130.3:8181'
    
 ]
@@ -57,10 +58,10 @@ CORS_ALLOW_METHODS = [
     'OPTIONS',  
 ]
 
-CORS_ALLOW_HEADERS = [
-    'Content-Type',
+# CORS_ALLOW_HEADERS = [
+#     'Content-Type',
     
-]
+# ]
 
 
 APPEND_SLASH = False
