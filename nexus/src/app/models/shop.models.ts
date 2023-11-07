@@ -6,7 +6,16 @@ export interface Shop {
   id: string;
   logo: string | null;
   name: string;
-  owner: string;
   phone: string;
   updated_at: string;
+}
+
+export interface Product {
+  name: string;
+  price: number;
+  description: string;
+  stock: number;
+  measurement: string;
+  shop: string;
+  category: string;
 }

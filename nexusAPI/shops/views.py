@@ -109,6 +109,8 @@ class ShopViewSet(viewsets.ModelViewSet):
 
     def create(self, request, *args, **kwargs):
         """Used to add new shops to the shop"""
+        user = request.user.id
+        request.data["owner"] = user
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         self.perform_create(serializer)
