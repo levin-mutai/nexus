@@ -10,16 +10,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class ShopdetailsComponent implements OnInit {
   shop_details: any;
-  ngOnInit(): void {
-    this.shop.getShops(this.shopId).subscribe((response) => {
-      console.log(response);
-      this.shop_details = response;
-    });
-  }
-  shopId!: string;
-  products!: any;
-
-  productDetails(): any {
+  productDetails!: any[];
+  prods(): any {
     this.shop.getProducts().subscribe((response) => {
       console.log(response);
       this.products = response;
@@ -32,4 +24,13 @@ export class ShopdetailsComponent implements OnInit {
       this.shopId = params['id'];
     });
   }
+  ngOnInit(): void {
+    this.shop.getShops(this.shopId).subscribe((response) => {
+      console.log(response);
+      this.shop_details = response;
+    });
+    this.productDetails = this.prods();
+  }
+  shopId!: string;
+  products!: any;
 }

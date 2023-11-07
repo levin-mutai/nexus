@@ -42,20 +42,23 @@ export class ShopService {
   }
 
   createProducts(product: Product) {
-    return this.http.post(environment.baseUrl + '/products', product, {
+    return this.http.post(environment.baseUrl + '/shops/products', product, {
       headers: this.headers,
     });
   }
 
   getProducts(product_id = ''): Observable<any> {
     if (product_id == '') {
-      return this.http.get(environment.baseUrl + '/products', {
+      return this.http.get(environment.baseUrl + '/shops/products', {
         headers: this.headers,
       });
     } else {
-      return this.http.get(environment.baseUrl + '/products/' + product_id, {
-        headers: this.headers,
-      });
+      return this.http.get(
+        environment.baseUrl + '/shops/products/' + product_id,
+        {
+          headers: this.headers,
+        }
+      );
     }
   }
 }
