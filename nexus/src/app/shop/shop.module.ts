@@ -5,9 +5,26 @@ import { ShopComponent } from './shop.component';
 import { ShopdetailsComponent } from '../shopdetails/shopdetails.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
+import { ShopCreateComponent } from './shop-create/shop-create.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [ProductComponent, ShopComponent, ShopdetailsComponent],
-  imports: [CommonModule, MatCardModule, MatTableModule],
+  declarations: [
+    ProductComponent,
+    ShopComponent,
+    ShopdetailsComponent,
+    ShopCreateComponent,
+  ],
+  imports: [
+    FormsModule,
+    ReactiveFormsModule,
+    CommonModule,
+    MatCardModule,
+    MatTableModule,
+    MatDialogModule,
+    MatButtonModule,
+  ],
 })
 export class ShopModule {}
