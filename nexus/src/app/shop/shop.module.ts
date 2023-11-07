@@ -9,6 +9,7 @@ import { ShopCreateComponent } from './shop-create/shop-create.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProductCreateComponent } from './product-create/product-create.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ShopComponent,
     ShopdetailsComponent,
     ShopCreateComponent,
+    ProductCreateComponent,
   ],
   imports: [
     FormsModule,

@@ -21,7 +21,7 @@ class Authorization:
         This function checks if the user is allowed to perform actions on products
         """
         user_id = request.user.id
-        shop_id = request.data.shop
+        shop_id = request.data.get('shop')
 
         if  Staff.objects.filter(user=user_id,shop=shop_id).exists():
             return True
