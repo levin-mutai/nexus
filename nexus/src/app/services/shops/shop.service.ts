@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { environment } from 'src/environment/environment';
 import { UserService } from '../users/user.service';
 import { Observable } from 'rxjs';
+import { Product, Shop, ShopCreate } from 'src/app/models/shop.models';
 
 @Injectable({
   providedIn: 'root',
@@ -33,6 +34,19 @@ export class ShopService {
       });
     }
   }
+
+  createShop(shop: ShopCreate) {
+    return this.http.post(environment.baseUrl + '/shops', shop, {
+      headers: this.headers,
+    });
+  }
+
+  createProducts(product: Product) {
+    return this.http.post(environment.baseUrl + '/products', product, {
+      headers: this.headers,
+    });
+  }
+
   getProducts(product_id = ''): Observable<any> {
     if (product_id == '') {
       return this.http.get(environment.baseUrl + '/products', {

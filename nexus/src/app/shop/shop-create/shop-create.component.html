@@ -1,0 +1,62 @@
+<mat-dialog-content class="mat-typography">
+  <div class="container">
+    <h2>Create a Shop</h2>
+    <form [formGroup]="shopForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input
+          type="text"
+          id="name"
+          formControlName="name"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label for="address">Address:</label>
+        <input
+          type="text"
+          id="address"
+          formControlName="address"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone:</label>
+        <input
+          type="tel"
+          id="phone"
+          formControlName="phone"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          formControlName="email"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea
+          id="description"
+          formControlName="description"
+          class="form-control"
+        ></textarea>
+      </div>
+      <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button
+          type="submit"
+          mat-button
+          [mat-dialog-close]="true"
+          cdkFocusInitial
+        >
+          Create Shop
+        </button>
+      </mat-dialog-actions>
+    </form>
+  </div>
+</mat-dialog-content>
